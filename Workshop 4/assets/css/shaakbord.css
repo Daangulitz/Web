@@ -1,18 +1,21 @@
-#shaakbord{
-    width: 508px;
+#schaakbord {
+    width: 480px;
+    height: 480px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     border: 2px solid #000;
 }
 
-.wit{
+#schaakbord div {
     width: 60px;
     height: 60px;
-    display: inline-block
 }
 
-.grijs{
-    width: 60px;
-    height: 60px;
-    display: inline-block;
-    background-color: #777;
+.wit {
+    background-color: #fff; 
+}
 
+.grijs {
+    background-color: #777; 
 }
