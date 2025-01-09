@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analog Clock</title>
+    <title>Train Board</title>
     <link rel="stylesheet" href="shaakbord.css">
 </head>
 <body>
-    <div class="clock">
-        <div class="hour-hand"></div>
-        <div class="minute-hand"></div>
-        <div class="second-hand"></div>
-    </div>
+    <h1>Live Train Information Board</h1>
+    <table id="train-board">
+        <thead>
+            <tr>
+                <th>Train Number</th>
+                <th>Departure Station</th>
+                <th>Arrival Station</th>
+                <th>Departure Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Train data will be injected here by JavaScript -->
+        </tbody>
+    </table>
+
     <script src="klok.js"></script>
 </body>
 </html>

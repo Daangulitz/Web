@@ -1,21 +1,54 @@
-function updateClock() {
-    const now = new Date();
-    
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    
-    const hourDeg = (hours % 12) * 30 + (minutes / 60) * 30; // 360 / 12 = 30 degrees per hour
-    const minuteDeg = minutes * 6 + (seconds / 60) * 6;      // 360 / 60 = 6 degrees per minute
-    const secondDeg = seconds * 6;                           // 360 / 60 = 6 degrees per second
-    
-    document.querySelector('.hour-hand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
-    document.querySelector('.minute-hand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
-    document.querySelector('.second-hand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+const apiUrl = 'https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/arrivals?station=UT';
+
+function fetchTrainData() {
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Ocp-Apim-Subscription-Key': '6efe8b15f76e49c8b019e7639be187e1'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tbody = document.querySelector('#train-board tbody');
+            tbody.innerHTML = ''; // Clear existing rows
+
+            // Filter trains for a specific platform (Spoor 5)
+            const specificPlatform = '5'; // Change this to the desired platform number
+            const filteredTrains = data.payload.arrivals.filter(train => train.plannedTrack === specificPlatform);
+
+            if (filteredTrains.length > 0) {
+                const nextTrain = filteredTrains[0]; // Get only the first train
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${nextTrain.trainNumber}</td>
+                    <td>${nextTrain.origin}</td>
+                    <td>${nextTrain.destination}</td>
+                    <td>${new Date(nextTrain.plannedDateTime).toLocaleTimeString()}</td>
+                    <td>${nextTrain.actualTrack || nextTrain.plannedTrack}</td>
+                    <td>${nextTrain.actualDateTime ? 'On time' : 'Delayed'}</td>
+                `;
+                tbody.appendChild(row);
+            } else {
+                // If no trins are available for the specified platform
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="6">No upcoming trains for platform ${specificPlatform}</td>`;
+                tbody.appendChild(row);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching train data:', error);
+        });
 }
 
-// Update the clock every second
-setInterval(updateClock, 1000);
+// Fetch train data every 30 seconds
+setInterval(fetchTrainData, 30000);
 
-// Initialize the clock immediately on load
-updateClock();
+// Initial fetch
+fetchTrainData();

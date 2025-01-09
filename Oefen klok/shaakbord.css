@@ -1,36 +1,29 @@
+/* style.css */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
 }
 
-.hour-hand, .minute-hand, .second-hand {
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    transform: translateX(-50%) rotate(0deg);
-    background-color: black;
+h1 {
+    color: #333;
 }
 
-.hour-hand {
-    width: 6px;
-    height: 50px;
-    background-color: #333;
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
-.minute-hand {
-    width: 4px;
-    height: 70px;
-    background-color: #555;
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
-.second-hand {
-    width: 2px;
-    height: 90px;
-    background-color: red;
+th {
+    background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
