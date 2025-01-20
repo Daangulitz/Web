@@ -1,0 +1,21 @@
+{
+    "languages": [
+      { "language": "Javascript",   "experience": 97 },
+      { "language": "Java",         "experience": 44 },
+      { "language": "PHP",          "experience": 65 },
+      { "language": "Perl",         "experience": 12 },
+      { "language": "C",            "experience": 16 },
+      { "language": "C++",          "experience": 6  },
+      { "language": "C#",           "experience": 32 },
+      { "language": "Objective-C",  "experience": 4  },
+      { "language": "Actionscript", "experience": 94 },
+      { "language": "Python",       "experience": 39 },
+      { "language": "Lua",          "experience": 5  },
+      { "language": "Lisp",         "experience": 2  },
+      { "language": "Rust",         "experience": 3  },
+      { "language": "Lingo",        "experience": 81 },
+      { "language": "Visual Basic", "experience": 26 },
+      { "language": "Turbo Pascal", "experience": 1  },
+      { "language": "Prolog",       "experience": 1  }
+    ]
+}
