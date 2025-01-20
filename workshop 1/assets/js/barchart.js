@@ -34,7 +34,7 @@ function setBarchart(data) {
             labels: languages,
             datasets: [
                 {
-                    label: 'Programming Experience (percentage)',
+                    label: 'Amount of players (percentage)',
                     data: experiences,
                     backgroundColor: colors,
                     borderWidth: 1,

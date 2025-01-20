@@ -1,0 +1,21 @@
+{
+    "languages": [
+      { "language": "Counter-Strike 2","experience": 100 },
+      { "language": "Dota 2",          "experience": 85 },
+      { "language": "Pubg",            "experience": 82 },
+      { "language": "Marvel Rivals",   "experience": 70 },
+      { "language": "Path of Exile 2", "experience": 64 },
+      { "language": "GTA 5",           "experience": 55  },
+      { "language": "Wallpaper Engine","experience": 53 },
+      { "language": "Naraka",          "experience": 50  },
+      { "language": "Rust",            "experience": 48 },
+      { "language": "Palworld",        "experience": 42 },
+      { "language": "Banana",          "experience": 36  },
+      { "language": "Stardew valley",  "experience": 34  },
+      { "language": "Delta Force",     "experience": 33  },
+      { "language": "Apex Legends",    "experience": 30 },
+      { "language": "War Thunder",     "experience": 25 },
+      { "language": "Warframe",        "experience": 18  },
+      { "language": "Team Fortress 2", "experience": 13  }
+    ]
+}
